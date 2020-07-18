@@ -104,6 +104,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "fluttertoast",
+      "rootUri": "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-7.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "http",
       "rootUri": "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.1",
       "packageUri": "lib/",
@@ -236,7 +242,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-07-05T07:32:23.842718Z",
+  "generated": "2020-07-18T06:30:55.115609Z",
   "generator": "pub",
   "generatorVersion": "2.8.4"
 }

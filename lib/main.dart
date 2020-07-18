@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:tictactoeapp/board.dart';
 import 'dart:async';
@@ -6,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
+import 'package:tictactoeapp/gameJoin.dart';
 import 'package:tictactoeapp/playerTypes.dart';
 
 Future<void> main() async {
@@ -77,6 +80,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final FirebaseApp app;
 
+  static const _chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+  Random _rnd = Random();
+  static const _length = 6;
+
+  String getRandomGameCode() {
+    var code = String.fromCharCodes(Iterable.generate(
+        _length, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))));
+    return code;
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -124,8 +137,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          BoardPage(app, PlayerTypes.primary, "1234")),
+                      builder: (context) => BoardPage(
+                          app, PlayerTypes.primary, getRandomGameCode())),
                 );
               },
             ),
@@ -141,9 +154,10 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          BoardPage(app, PlayerTypes.secondary, "1234")),
+                  MaterialPageRoute(builder: (context) => GameJoin(app))
+                  /*BoardPage(
+                          app, PlayerTypes.secondary, getRandomGameCode()))*/
+                  ,
                 );
               },
             )

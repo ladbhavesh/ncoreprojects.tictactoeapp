@@ -135,6 +135,24 @@ class _BoardPageState extends State<BoardPage> {
     }
 
     if (_positions[0] == player &&
+        _positions[3] == player &&
+        _positions[6] == player) {
+      return GameStatus.Won;
+    }
+
+    if (_positions[1] == player &&
+        _positions[4] == player &&
+        _positions[7] == player) {
+      return GameStatus.Won;
+    }
+
+    if (_positions[2] == player &&
+        _positions[5] == player &&
+        _positions[8] == player) {
+      return GameStatus.Won;
+    }
+
+    if (_positions[0] == player &&
         _positions[4] == player &&
         _positions[8] == player) {
       return GameStatus.Won;
@@ -142,7 +160,7 @@ class _BoardPageState extends State<BoardPage> {
 
     if (_positions[2] == player &&
         _positions[4] == player &&
-        _positions[8] == player) {
+        _positions[6] == player) {
       return GameStatus.Won;
     }
 
@@ -287,7 +305,7 @@ class _BoardPageState extends State<BoardPage> {
         child: Row(
       children: <Widget>[
         Text(
-          "Play code: 12345",
+          "Code: ${gameCode}",
           style: TextStyle(fontSize: 40),
         ),
       ],
